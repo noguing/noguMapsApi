@@ -41,11 +41,11 @@ def connect_to_mongodb():
         if (config.user is None and config.password is None) or \
                 (config.user == "" and config.password == ""):
             # 无密码连接
-            logger.info("config.json中没有填写用户名与密码，采用无密码连接")
+            logger.info("config中没有填写用户名与密码，采用无密码连接")
             mongo_client = MongoClient(
                 f"mongodb://{config.host}:{config.port}/")
         else:
-            logger.info("在config.json中检测到用户名与密码，采用无密码连接")
+            logger.info("在config中检测到用户名与密码，采用无密码连接")
             # 有密码连接
             mongo_client = MongoClient(
                 f"mongodb://{config.user}:{config.password}@{config.host}:{config.port}/")
